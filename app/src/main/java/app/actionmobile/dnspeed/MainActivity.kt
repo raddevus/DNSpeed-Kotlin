@@ -24,8 +24,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            //    .setAction("Action", null).show()
+            entryList.add(Entry(5,"yet another"))
+            adapter?.notifyDataSetChanged();
+
         }
 
         val EntryViewRecyclerView = findViewById(R.id.entryRecyclerView) as RecyclerView
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         entryList.add(Entry(5,"test"));
         entryList.add(Entry(2,"garbage "));
         entryList.add(Entry(3,"more"));
+        for (i in 10..60){
+            entryList.add(Entry(i,"test_"+i.toString()))
+        }
 
         adapter = EntryAdapter(entryList)
         //adapter.allEntries.add(Entry(1,"test"));
